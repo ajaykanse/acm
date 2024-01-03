@@ -27,8 +27,8 @@ spec:
         argocd.argoproj.io/compare-options: IgnoreExtraneous
       labels:
         velero.io/exclude-from-backup: "true"
-        url: "{{url}}"
-        cluster: "{{cluster}}"
+        url: "{{.url}}"
+        cluster: "{{.cluster}}"
       name: "{{name}}"
       namespace: openshift-gitops
     spec:
