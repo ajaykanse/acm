@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  name: openshift-cert-manager-operator
+  name: sample
   namespace: openshift-gitops
 spec:
   generators:
