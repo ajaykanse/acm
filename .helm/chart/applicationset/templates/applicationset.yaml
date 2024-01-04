@@ -41,7 +41,7 @@ spec:
         helm:
           releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
-          - components/**/{{`{{path.basename}}`}}/values.yaml
+          - values.yaml
         path: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: HEAD
