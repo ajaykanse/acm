@@ -22,7 +22,7 @@ spec:
   source:
     repoURL: https://github.com/ajaykanse/acm.git  # Can point to either a Helm chart repo or a git repo.
     targetRevision: day2ops
-    path: ./helm/chart  # For Helm, this refers to the chart version.
+    path: .helm/chart  # For Helm, this refers to the chart version.
     helm:
       valueFiles:
       - values.yaml
