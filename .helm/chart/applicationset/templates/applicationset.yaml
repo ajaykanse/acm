@@ -44,7 +44,7 @@ spec:
           - values.yaml
         path: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
-        targetRevision: HEAD
+        targetRevision: day2ops
       syncPolicy:
         automated:
           prune: true
