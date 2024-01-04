@@ -17,7 +17,7 @@ spec:
             requeueAfterSeconds: 180
         - git:
             repoURL: https://github.com/ajaykanse/acm.git
-            revision: master
+            revision: day2ops
             directories:
             - path: components/*
         
