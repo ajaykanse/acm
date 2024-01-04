@@ -43,7 +43,7 @@ spec:
           releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
           - placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
-        path: components/{{`{{path.basename}}`}}
+        chart: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops
       syncPolicy:
