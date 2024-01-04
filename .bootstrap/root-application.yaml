@@ -21,8 +21,8 @@ spec:
   # Source of the application manifests
   source:
     repoURL: https://github.com/ajaykanse/acm.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
-    path: '../.helm/chart'  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    targetRevision: day2ops  # For Helm, this refers to the chart version.
+    path: '.helm/chart'  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
   # Destination cluster and namespace to deploy the application
   destination:
