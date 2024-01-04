@@ -1,9 +1,11 @@
+{{- range $placement := .Values.placements }}
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: {{ .Values.suffix }}
+  name: {{ $placement }}
   namespace: openshift-gitops
 spec:
   clusterSets:
-  - {{ .Values.suffix }}
+  - {{ $placement}}
+{{- end }}

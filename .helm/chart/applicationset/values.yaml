@@ -1,1 +1,3 @@
-suffix: production
+placements:
+  - production
+  - development

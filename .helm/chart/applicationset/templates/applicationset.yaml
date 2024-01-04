@@ -1,3 +1,5 @@
+{{- range $placement := .Values.placements }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -13,14 +15,13 @@ spec:
             configMapRef: acm-placement
             labelSelector:
               matchLabels:
-                cluster.open-cluster-management.io/placement: {{ .Values.suffix }}
+                cluster.open-cluster-management.io/placement: {{ $placement }}
             requeueAfterSeconds: 180
         - git:
             repoURL: https://github.com/ajaykanse/acm.git
             revision: day2ops
             directories:
             - path: components/*
-        
   template:
     metadata:
       annotations:
@@ -41,7 +42,7 @@ spec:
         helm:
           releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
-          - values.yaml
+          - placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
         path: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops
@@ -52,3 +53,4 @@ spec:
         syncOptions:
         - CreateNamespace=true
         - PruneLast=true
+{{- end }}
