@@ -7,9 +7,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-    - merge:
-        mergeKeys:
-        - name
+    - matrix:
         generators:
         - clusterDecisionResource:
             configMapRef: acm-placement
@@ -17,11 +15,11 @@ spec:
               matchLabels:
                 cluster.open-cluster-management.io/placement: {{ .Values.suffix }}
             requeueAfterSeconds: 180
-    - git:
-      repoURL: https://github.com/ajaykanse/acm.git
-      revision: master
-      directories:
-      - path: components/*
+        - git:
+          repoURL: https://github.com/ajaykanse/acm.git
+          revision: master
+          directories:
+          - path: components/*
         
   template:
     metadata:
