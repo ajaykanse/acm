@@ -1,0 +1,7 @@
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+  name: vault-config-operator
+  namespace: vault-config-operator
+spec: 
+    targetNamespaces:
+    - vault-config-operator
