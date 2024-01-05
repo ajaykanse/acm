@@ -21,7 +21,7 @@ spec:
             repoURL: https://github.com/ajaykanse/acm.git
             revision: day2ops
             directories:
-            - path: components/*
+            - path: placements/{{ $placement }}/*
   template:
     metadata:
       annotations:
