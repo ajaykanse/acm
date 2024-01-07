@@ -17,13 +17,29 @@ metadata:
 spec:
   # The project the application belongs to.
   project: default
-
+ 
+  sources:
+    - repoURL: https://github.com/ajaykanse/acm.git
+      path: .helm/chart/applicationset
+      targetRevision: day2ops
+      helm:
+        valueFiles:
+        - values.yaml
+    - repoURL: https://github.com/ajaykanse/acm.git
+      path: .helm/chart/clusters
+      targetRevision: day2ops
+      helm:
+        valueFiles:
+        - values.yaml
+  
+  
   # Source of the application manifests
-  source:
-    repoURL: https://github.com/ajaykanse/acm.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: day2ops
-    path: ./helm/chart
-    # path: .helm/chart/applicationset  # For Helm, this refers to the chart version.
+  # source:
+  #   repoURL: https://github.com/ajaykanse/acm.git  # Can point to either a Helm chart repo or a git repo.
+  #   targetRevision: day2ops
+    # directory:
+    #   recurse: true   # can be used for flat yaml files but not with charts
+    #path: .helm/chart/applicationset  # For Helm, this refers to the chart version.
     # helm:
     #   valueFiles:
     #   - values.yaml
