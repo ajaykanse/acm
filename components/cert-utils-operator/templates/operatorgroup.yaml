@@ -1,6 +1,6 @@
 apiVersion: operators.coreos.com/v1alpha2
 kind: OperatorGroup
 metadata:
-  name: cert-utils-operator-9n6cd
+  name: cert-utils-operator
   namespace: cert-utils-operator
 spec: {}
