@@ -43,7 +43,7 @@ spec:
           - ../../clusters/{{ $cluster }}/{{`{{path.basename}}`}}/values.yaml
         path: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
-        targetRevision: day2ops
+        targetRevision: day2ops-new
       syncPolicy:
         automated:
           prune: true

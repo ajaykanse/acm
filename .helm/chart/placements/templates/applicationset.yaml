@@ -19,9 +19,14 @@ spec:
             requeueAfterSeconds: 180
         - git:
             repoURL: https://github.com/ajaykanse/acm.git
-            revision: day2ops
+            revision: day2ops-new
             directories:
             - path: placements/{{ $placement }}/*
+        - git:
+            repoURL: https://github.com/ajaykanse/acm.git
+            revision: day2ops-new
+            directories:
+            - path: clusters/"{{`{{name}}`}}"/*
   template:
     metadata:
       annotations:
@@ -42,6 +47,7 @@ spec:
         helm:
           releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
+          - ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
           - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
         path: components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
