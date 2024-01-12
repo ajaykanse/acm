@@ -22,11 +22,7 @@ spec:
             revision: day2ops-new
             directories:
             - path: placements/{{ $placement }}/*
-        - git:
-            repoURL: https://github.com/ajaykanse/acm.git
-            revision: day2ops-new
-            directories:
-            - path: clusters/"{{`{{name}}`}}"/*
+
   template:
     metadata:
       annotations:
@@ -46,6 +42,7 @@ spec:
       source:
         helm:
           releaseName: '{{`{{path.basename}}`}}'
+          ignoreMissingValueFiles: true
           valueFiles:
           - ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
           - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
