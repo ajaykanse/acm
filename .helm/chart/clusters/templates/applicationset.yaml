@@ -17,7 +17,7 @@ spec:
                 name: {{ $cluster }}
         - git:
             repoURL: https://github.com/ajaykanse/acm.git
-            revision: day2ops
+            revision: day2ops-new
             directories:
             - path: clusters/{{ $cluster }}/*
   template:
