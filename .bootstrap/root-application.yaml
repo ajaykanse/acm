@@ -25,12 +25,12 @@ spec:
       helm:
         valueFiles:
         - values.yaml
-    - repoURL: https://github.com/ajaykanse/acm.git
-      path: .helm/chart/clusters
-      targetRevision: day2ops-new
-      helm:
-        valueFiles:
-        - values.yaml
+    # - repoURL: https://github.com/ajaykanse/acm.git
+    #   path: .helm/chart/clusters
+    #   targetRevision: day2ops-new
+    #   helm:
+    #     valueFiles:
+    #     - values.yaml
   
   
   # Source of the application manifests
