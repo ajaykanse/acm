@@ -50,7 +50,6 @@ spec:
           # releaseName: '{{`{{path.basename}}`}}'
           ignoreMissingValueFiles: true
           valueFiles:
-          - values.yaml
           - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
           - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/{{`{{name}}`}}/values.yaml
           #- ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
