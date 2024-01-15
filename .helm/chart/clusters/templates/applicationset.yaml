@@ -38,10 +38,10 @@ spec:
     # Due to this u cant see app details link in ACM UI
       source:
         helm:
-          releaseName: '{{`{{path.basename}}`}}'
+          # releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
           - ../../clusters/{{ $cluster }}/{{`{{path.basename}}`}}/values.yaml
-        path: clusters/{{`{{path.basename}}`}}
+        path: cluster-components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops-new
       syncPolicy:
