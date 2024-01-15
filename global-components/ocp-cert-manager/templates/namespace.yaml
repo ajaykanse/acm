@@ -3,6 +3,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: cert-manager-operator
+  labels:
+    message-from: {{ .Values.test-msg }}
   annotations:
     argocd.argoproj.io/sync-options: Delete=false
   labels:
