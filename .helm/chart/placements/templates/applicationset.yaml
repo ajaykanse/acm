@@ -42,7 +42,7 @@ spec:
               - name: 'local-cluster'
                 realName: 'cluster-zvrwr.zvrwr'
               - name: 'cluster1'
-                realName: '{{`{{name}}`}}'
+                realName: 'cluster1'
   template:
     metadata:
       annotations:
