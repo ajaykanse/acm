@@ -61,6 +61,16 @@ spec:
                     valueFiles:
                     - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
                     - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/cluster-zvrwr.zvrwr/values.yaml
+                  path: global-components/{{`{{path.basename}}`}}
+                  repoURL: https://github.com/ajaykanse/acm.git
+                  targetRevision: day2ops-name-change
+                syncPolicy:
+                  automated:
+                    prune: true
+                    selfHeal: true
+                  syncOptions:
+                  - CreateNamespace=true
+                  - PruneLast=true
   template:
     metadata:
       annotations:
