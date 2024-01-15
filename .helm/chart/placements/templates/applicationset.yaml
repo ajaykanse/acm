@@ -40,47 +40,19 @@ spec:
         - list:
             elements:
               - name: 'local-cluster'
-            template:
-              metadata:
-                annotations:
-                  app.kubernetes.io/instance: "cluster-zvrwr.zvrwr"
-                  argocd.argoproj.io/compare-options: IgnoreExtraneous
-                labels:
-                 cluster-placement: "cluster-zvrwr.zvrwr"
-                 component-name: '{{`{{path.basename}}`}}'
-                name: "placement-cluster-zvrwr.zvrwr-{{path.basename}}`}}"
-                namespace: openshift-gitops
-              spec:
-                destination:
-                  namespace: openshift-gitops
-                  server: '{{`{{server}}`}}'
-                project: default
-                source:
-                  helm:
-                    ignoreMissingValueFiles: true
-                    valueFiles:
-                    - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
-                    - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/cluster-zvrwr.zvrwr/values.yaml
-                  path: global-components/{{`{{path.basename}}`}}
-                  repoURL: https://github.com/ajaykanse/acm.git
-                  targetRevision: day2ops-name-change
-                syncPolicy:
-                  automated:
-                    prune: true
-                    selfHeal: true
-                  syncOptions:
-                  - CreateNamespace=true
-                  - PruneLast=true
+                realName: 'cluster-zvrwr.zvrwr'
+              - name: 'cluster1'
+                realName: '{{`{{name}}`}}'
   template:
     metadata:
       annotations:
-        app.kubernetes.io/instance: "{{`{{name}}`}}"
+        app.kubernetes.io/instance: "{{`{{realName}}`}}"
         argocd.argoproj.io/compare-options: IgnoreExtraneous
         test: test
       labels:
-       cluster-placement: '{{`{{name}}`}}'
+       cluster-placement: '{{`{{realName}}`}}'
        component-name: '{{`{{path.basename}}`}}'
-      name: "placement-{{`{{name}}-{{path.basename}}`}}"
+      name: "placement-{{`{{realName}}-{{path.basename}}`}}"
       namespace: openshift-gitops
     spec:
       destination:
@@ -95,7 +67,7 @@ spec:
           ignoreMissingValueFiles: true
           valueFiles:
           - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
-          - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/{{`{{name}}`}}/values.yaml
+          - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/{{`{{realName}}`}}/values.yaml
           #- ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
         path: global-components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
