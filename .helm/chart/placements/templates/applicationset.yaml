@@ -9,7 +9,9 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-    - matrix:
+    - merge:
+        mergeKeys:
+          - name
         generators:
         - clusterDecisionResource:
             configMapRef: acm-placement
@@ -27,22 +29,21 @@ spec:
             revision: day2ops-name-change
             directories:
             - path: global-components/*
-    - merge:
-        mergeKeys:
-        - name
-        generators:
-        - clusterDecisionResource:
-            configMapRef: acm-placement
-            labelSelector:
-              matchLabels:
-                cluster.open-cluster-management.io/placement: {{ $placement }}
-            requeueAfterSeconds: 180
+    # - merge:
+    #     mergeKeys:
+    #     - name
+    #     generators:
+    #     - clusterDecisionResource:
+    #         configMapRef: acm-placement
+    #         labelSelector:
+    #           matchLabels:
+    #             cluster.open-cluster-management.io/placement: {{ $placement }}
+    #         requeueAfterSeconds: 180
         - list:
-            elements:
-              - name: 'local-cluster'
-                realName: 'cluster-zvrwr.zvrwr'
-              - name: 'cluster1'
-                realName: 'cluster1'
+             elements:
+               - name: 'local-cluster'
+                 realName: 'hub-cluster'
+
   template:
     metadata:
       annotations:

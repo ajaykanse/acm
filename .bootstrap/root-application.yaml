@@ -19,12 +19,12 @@ spec:
   project: default
  
   sources:
-    - repoURL: https://github.com/ajaykanse/acm.git
-      path: .helm/chart/placements
-      targetRevision: day2ops-name-change
-      helm:
-        valueFiles:
-        - values.yaml
+    # - repoURL: https://github.com/ajaykanse/acm.git
+    #   path: .helm/chart/placements
+    #   targetRevision: day2ops-name-change
+    #   helm:
+    #     valueFiles:
+    #     - values.yaml
     - repoURL: https://github.com/ajaykanse/acm.git
       path: .helm/chart/clusters
       targetRevision: day2ops-name-change
