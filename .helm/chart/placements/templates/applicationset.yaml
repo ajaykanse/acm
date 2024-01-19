@@ -59,7 +59,7 @@ spec:
        #app-name:  '{{ replace "in-cluser" "local-cluster" `{{.name}}` }}' no syntax error
        app-name:  '{{ `{{.name | replace  "local-cluster" "cluster-6t6fz.6t6fz" }}` | trim }}'
        #| replace "local-cluster" "in-cluster" }}
-      name: "placement-{{`{{.name}}-{{.path.basename}}`}}"
+      name: "placement-{{`{{.name | replace  "local-cluster" "cluster-6t6fz.6t6fz"}}-{{.path.basename}}`}}"
       namespace: openshift-gitops
     spec:
       destination:
