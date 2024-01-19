@@ -56,7 +56,7 @@ spec:
       labels:
        cluster-placement: '{{`{{.name}}`}}'
        component-name: '{{ `{{.path.basename}}` }}'
-       #app-name:  '{{ replace "in-cluser" "local-cluster" `{{.name}}` }}' no syntax error
+       # Change local-cluster name to actual cluster name
        app-name:  '{{ `{{.name | replace  "local-cluster" "cluster-6t6fz.6t6fz" }}` | trim }}'
        #| replace "local-cluster" "in-cluster" }}
       #name: "placement-{{`{{.name}}-{{.path.basename}}`}}"
