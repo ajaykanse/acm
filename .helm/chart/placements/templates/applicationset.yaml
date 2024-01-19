@@ -69,10 +69,10 @@ spec:
           # releaseName: '{{`{{path.basename}}`}}'
           ignoreMissingValueFiles: true
           valueFiles:
-          - ../../placements/{{ $placement }}/{{`{{.path.basename}}`}}/values.yaml
-          - ../../placements/{{ $placement }}/{{`{{.path.basename}}`}}/{{`{{name}}`}}/values.yaml
+          - ../../placements/{{ $placement }}/{{.path.basename}}/values.yaml
+          - ../../placements/{{ $placement }}/{{.path.basename}}/{{`{{name}}`}}/values.yaml
           #- ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
-        path: global-components/{{`{{.path.basename}}`}}
+        path: global-components/{{.path.basename}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops-name-change
       syncPolicy:
