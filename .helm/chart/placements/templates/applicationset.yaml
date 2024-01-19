@@ -8,10 +8,12 @@ metadata:
   name: day2ops-{{ $placement }}
   namespace: openshift-gitops
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
-    - merge:
-        mergeKeys:
-          - name
+    - matrix:
+        # mergeKeys:
+        #   - name
         generators:
         - clusterDecisionResource:
             configMapRef: acm-placement
@@ -39,21 +41,21 @@ spec:
     #           matchLabels:
     #             cluster.open-cluster-management.io/placement: {{ $placement }}
     #         requeueAfterSeconds: 180
-        - list:
-             elements:
-               - name: 'local-cluster'
-                 realName: 'hub-cluster'
+        # - list:
+        #      elements:
+        #        - name: 'local-cluster'
+        #          realName: 'hub-cluster'
 
   template:
     metadata:
       annotations:
-        app.kubernetes.io/instance: "{{`{{realName}}`}}"
+        app.kubernetes.io/instance: "{{`{{name}}`}}"
         argocd.argoproj.io/compare-options: IgnoreExtraneous
         test: test
       labels:
-       cluster-placement: '{{`{{realName}}`}}'
-       component-name: '{{`{{path.basename}}`}}'
-      name: "placement-{{`{{realName}}-{{path.basename}}`}}"
+       cluster-placement: '{{`{{name}}`}}'
+       component-name: '{{`{{.path.basename}}`}}'
+      name: "placement-{{`{{name}}`}}{{replace "local-cluster" "hub-cluster"}}-{{.path.basename}}`}}"
       namespace: openshift-gitops
     spec:
       destination:
@@ -67,10 +69,10 @@ spec:
           # releaseName: '{{`{{path.basename}}`}}'
           ignoreMissingValueFiles: true
           valueFiles:
-          - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/values.yaml
-          - ../../placements/{{ $placement }}/{{`{{path.basename}}`}}/{{`{{realName}}`}}/values.yaml
+          - ../../placements/{{ $placement }}/{{`{{.path.basename}}`}}/values.yaml
+          - ../../placements/{{ $placement }}/{{`{{.path.basename}}`}}/{{`{{name}}`}}/values.yaml
           #- ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
-        path: global-components/{{`{{path.basename}}`}}
+        path: global-components/{{`{{.path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops-name-change
       syncPolicy:
