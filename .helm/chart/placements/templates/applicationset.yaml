@@ -55,7 +55,8 @@ spec:
       labels:
        cluster-placement: '{{`{{.name}}`}}'
        component-name: '{{ `{{.path.basename}}` }}'
-       app-name: {{ `{{.name}}` | replace "local-cluster" "in-cluster" }}
+       app-name: {{ `{{.name}}` }}
+       #| replace "local-cluster" "in-cluster" }}
       name: "placement-{{`{{.name}}-{{.path.basename}}`}}"
       namespace: openshift-gitops
     spec:
