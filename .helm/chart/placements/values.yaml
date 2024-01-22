@@ -1,3 +1,4 @@
 placements:
   - production
   - development
+project: platform
