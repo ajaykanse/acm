@@ -57,10 +57,10 @@ spec:
        cluster-placement: '{{`{{.name}}`}}'
        component-name: '{{ `{{.path.basename}}` }}'
        # Change local-cluster name to actual cluster name
-       app-name:  '{{ `{{.name | replace  "local-cluster" "cluster-6t6fz.6t6fz" }}` | trim }}'
+       app-name:  '{{ `{{.name | replace  "local-cluster" "cluster-x7cs8.x7cs8" }}` | trim }}'
        #| replace "local-cluster" "in-cluster" }}
       #name: "placement-{{`{{.name}}-{{.path.basename}}`}}"
-      name: placement-{{`{{.name | replace  "local-cluster" "cluster-6t6fz.6t6fz"}}-{{.path.basename}}`}}
+      name: placement-{{`{{.name | replace  "local-cluster" "cluster-x7cs8.x7cs8"}}-{{.path.basename}}`}}
       namespace: openshift-gitops
     spec:
       destination:
