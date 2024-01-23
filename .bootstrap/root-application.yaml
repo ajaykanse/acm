@@ -19,8 +19,9 @@ spec:
   project: default
  
   sources:
-    - repoURL: https://github.com/ajaykanse/control-plane
+    - repoURL: https://github.com/ajaykanse/acm.git
       path: project/
+      targetRevision: day2ops-name-change
       directory:
         recurse: false
     - repoURL: https://github.com/ajaykanse/acm.git
