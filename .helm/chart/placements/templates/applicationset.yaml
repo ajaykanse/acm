@@ -31,7 +31,7 @@ spec:
             revision: day2ops-name-change
             directories:
             - path: global-components/*
-            nameSuffix: test
+            # nameSuffix: test
     # - merge:
     #     mergeKeys:
     #     - name

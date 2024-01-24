@@ -27,7 +27,7 @@ spec:
         argocd.argoproj.io/compare-options: IgnoreExtraneous
       labels:
        cluster-name: '{{`{{name}}`}}'
-      name: "cluster-{{`{{name}}-{{path.basename}}`}}"
+      name: "cluster-{{`{{.name | replace  "local-cluster" "cluster-x7cs8.x7cs8"}}-{{.path.basename}}`}}
       namespace: openshift-gitops
     spec:
       destination:
