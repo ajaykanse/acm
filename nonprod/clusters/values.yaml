@@ -1,0 +1,4 @@
+clusters:
+  - local-cluster
+#  - cluster1
+project: platform
