@@ -1,4 +1,5 @@
 placements:
   - sandbox
   - development
+environment: nonprod
 project: platform
