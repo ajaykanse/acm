@@ -19,7 +19,7 @@ spec:
             repoURL: https://github.com/ajaykanse/acm.git
             revision: day2ops-name-change
             directories:
-            - path: clusters/{{ $cluster }}/*
+            - path: {{ .Values.environment }}/clusters/{{ $cluster }}/*
   template:
     metadata:
       annotations:
