@@ -79,7 +79,7 @@ spec:
           #- ../../clusters/{{`{{name}}`}}/{{`{{path.basename}}`}}/values.yaml
         path: global-components/{{ `{{.path.basename}}` }}
         repoURL: https://github.com/ajaykanse/acm.git
-        targetRevision: day2ops-name-change
+        targetRevision: day2ops-env-setup
       syncPolicy:
         automated:
           prune: true

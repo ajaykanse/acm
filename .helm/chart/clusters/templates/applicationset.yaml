@@ -43,7 +43,7 @@ spec:
           - ../../clusters/{{ $cluster }}/{{`{{path.basename}}`}}/values.yaml
         path: cluster-components/{{`{{path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
-        targetRevision: day2ops-name-change
+        targetRevision: day2ops-env-setup
       syncPolicy:
         automated:
           prune: true

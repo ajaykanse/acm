@@ -1,4 +1,4 @@
 clusters:
-  # - local-cluster
-  - cluster1
+  - local-cluster
+#  - cluster1
 project: platform
