@@ -8,6 +8,8 @@ metadata:
   name: cluster-{{ $cluster }}
   namespace: openshift-gitops
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
     - matrix:
         generators:
