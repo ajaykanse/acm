@@ -16,14 +16,14 @@ metadata:
     repo: default
 spec:
   # The project the application belongs to.
-  project: default
+  project: platform
  
   sources:
-    - repoURL: https://github.com/ajaykanse/acm.git
-      path: project/
-      targetRevision: day2ops-env-setup
-      directory:
-        recurse: false
+    # - repoURL: https://github.com/ajaykanse/acm.git
+    #   path: project/
+    #   targetRevision: day2ops-env-setup
+    #   directory:
+    #     recurse: false
     - repoURL: https://github.com/ajaykanse/acm.git
       path: .helm/chart/placements
       targetRevision: day2ops-env-setup

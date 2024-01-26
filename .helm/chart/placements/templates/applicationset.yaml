@@ -52,7 +52,6 @@ spec:
       annotations:
         app.kubernetes.io/instance: "{{`{{.name}}`}}"
         argocd.argoproj.io/compare-options: IgnoreExtraneous
-        test: test
       labels:
        cluster-placement: '{{`{{.name}}`}}'
        component-name: '{{ `{{.path.basename}}` }}'
