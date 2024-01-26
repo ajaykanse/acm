@@ -25,10 +25,10 @@ spec:
   template:
     metadata:
       annotations:
-        app.kubernetes.io/instance: "{{`{{name}}`}}"
+        app.kubernetes.io/instance: "{{`{{.name}}`}}"
         argocd.argoproj.io/compare-options: IgnoreExtraneous
       labels:
-       cluster-name: '{{`{{name}}`}}'
+       cluster-name: '{{`{{.name}}`}}'
       name: cluster-{{`{{.name | replace  "local-cluster" "cluster-scjsd.scjsd"}}-{{.path.basename}}`}}
       namespace: openshift-gitops
     spec:
@@ -42,8 +42,8 @@ spec:
         helm:
           # releaseName: '{{`{{path.basename}}`}}'
           valueFiles:
-          - ../../{{ $.Values.environment }}/clusters/{{ $cluster }}/{{`{{path.basename}}`}}/values.yaml
-        path: cluster-components/{{`{{path.basename}}`}}
+          - ../../{{ $.Values.environment }}/clusters/{{ $cluster }}/{{`{{.path.basename}}`}}/values.yaml
+        path: cluster-components/{{`{{.path.basename}}`}}
         repoURL: https://github.com/ajaykanse/acm.git
         targetRevision: day2ops-env-setup
       syncPolicy:
