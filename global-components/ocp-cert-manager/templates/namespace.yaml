@@ -6,7 +6,7 @@ metadata:
   labels:
     message-from: {{ .Values.testmsg }}
   annotations:
-    argocd.argoproj.io/sync-options: Delete=false
+    argocd.argoproj.io/sync-options: Delete=true
   labels:
     openshift.io/cluster-monitoring: "true"
     argocd.argoproj.io/managed-by: openshift-gitops  
