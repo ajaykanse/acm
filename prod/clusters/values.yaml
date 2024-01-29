@@ -1,0 +1,5 @@
+clusters:
+  - local-cluster
+#  - cluster1
+environment: nonprod
+project: platform
